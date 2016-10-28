@@ -9,6 +9,8 @@
   send params user filled in textbox to connpasAPI.
   When response'd be returned, display it.
 
+  cannot receive data from connpasAPI because of cross domain policy....
+
 
 ## action shapes
   { type: 'FETCH_POSTS_REQUEST' }
@@ -33,3 +35,17 @@
 		  }
 	  }
   }
+
+
+## components outline
+
+### presentational(components (React side virtualDOM) )
+- App
+- SelectCategory(javascript/python)
+- PostList
+    └ Post
+
+
+### container(container ( dispatcher ) )
+- visiblePostList
+- postList
