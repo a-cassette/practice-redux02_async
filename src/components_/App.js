@@ -13,13 +13,14 @@ import selectPostList from '../containers/selectCategory'
 
 class App extends Component {
   // render
-  return() {
-    <div>
-        <postList />
-        <selectPostList />
-    </div>
+  render() {
+    return (
+      <div>
+          <postList />
+          <selectPostList />
+      </div>
+    )
   }
-  
 }
 
 export default App

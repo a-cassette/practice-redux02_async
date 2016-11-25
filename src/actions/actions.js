@@ -4,13 +4,12 @@ import fetch from 'isomorphic-fetch'
  * user interaction actions
  */
 export const SELECT_CATEGORY  = 'SELECT_CATEGORY'
-export const REFRESH_CATEGORY = 'REFRESH_CATEGORY'
-
 export const selectCategory = category => ({
   type: SELECT_CATEGORY,
   category
 })
 
+export const REFRESH_CATEGORY = 'REFRESH_CATEGORY'
 export const refreshCategory = category => ({
   type: REFRESH_CATEGORY,
   category
@@ -21,9 +20,6 @@ export const refreshCategory = category => ({
 /*
  * fetching data actions
  */
-export const REQUEST_POSTS = 'REQUEST_POSTS'
-export const RECEIVE_POSTS = 'RECEIVE_POSTS'
-
 
 /*
  * dispatcher call these following actions functions with aruguments
@@ -35,11 +31,13 @@ export const RECEIVE_POSTS = 'RECEIVE_POSTS'
  *
  */
 
+export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const requestPosts = category => ({
   type: REQUEST_POSTS,
   category
 })
 
+export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const receivePosts = (category, json) => ({
   type: RECEIVE_POSTS,
   category,
@@ -63,7 +61,6 @@ const fetchPosts = category => {
     dispatch(requestPosts(category))
 
     return fetch(`https://www.reddit.com/r/${category}.json`)
-    //return fetch(`https://www.connpass.com/api/v1/event/?keyrowd=${category}`)
         .then(response => response.json())
         .then(json => dispatch(receivePosts(category, json)))
   }
@@ -74,7 +71,7 @@ const fetchPosts = category => {
  * check state whether should fetch or not
  */
 const shouldFetchPosts = (state, category) => {
-  const posts = state.postsByConnpas[category] // get cashing state data depending on arg category
+  const posts = state.postsByReddit[category] // get cashing state data depending on arg category
   if (!posts) {
     return true
   } else if (posts.isFetching) {

@@ -12,17 +12,16 @@ import {
 //	  selectedCategory: 'javascript',
 //	  posts: {
 //		  javascript: {
-//			  isFetching: true,
 //			  isCached: false,
 //			  items: []
 //		  },
 //		  python: {
-//			  isFetching: true,
 //			  isCached: true,
-//			  lastUpdate: 123456789,
 //			  items: [ value, value, value... ]
 //		  }
 //	  }
+//	  isFetching: true,
+//	  lastUpdate: 123456789,
 //  }
 
 /*
@@ -71,7 +70,7 @@ const posts = (state = {
 /*
  * reducer 2
  */
-const postsByConnpas = (state = {}, action) => {
+const postsByReddit = (state = {}, action) => {
     switch (action.type) {
       case REFRESH_CATEGORY:
       case REQUEST_POSTS:
@@ -86,7 +85,7 @@ const postsByConnpas = (state = {}, action) => {
 
 const rootReducer = combineReducers({
   selectedCategory,
-  postsByConnpas
+  postsByReddit
 })
 
 export default rootReducer

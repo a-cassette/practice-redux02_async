@@ -8,13 +8,11 @@ import { SelectCategory } from '../components/SelectCategory'
 
 //map state values into props
 const mapStateToProps = (state) => {
-  return {
-    return state
-  }
+  return state
 }
 
 // map dispatch function into props
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, state) => {
   return {
     onSelectedCategoryChanged: () => { dispatch(fetchPostsIfNeeded(state.selectedCategory)) }
   }

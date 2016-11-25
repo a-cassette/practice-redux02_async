@@ -1,0 +1,5 @@
+import React         from 'react'
+import { component } from 'react'
+import { PropTypes }    from 'react'
+import { connect }      from 'react-redux'
+import { requestPosts } from '../actions'

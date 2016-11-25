@@ -15,4 +15,9 @@ class PostList extends Component {
   // method
   
   // render
+  render() {
+    return (
+      <p>{ this.props.selectedCategory }</p>
+    )
+  }
 }

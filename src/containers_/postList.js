@@ -3,14 +3,12 @@
  */
 
 import { connect } from 'react-redux'
-// import { } from '../actions/actions'
+// import { shouldFetchPosts } from '../actions/actions'
 import { PostList } from '../components/PostList'
 
 // map state object into props
 const mapStateProps = (state) => {
-  return {
-    return state
-  }
+  return state
 }
 // map dispatch function into props
 //const mapDispatchToProps = (dispatch) => {
