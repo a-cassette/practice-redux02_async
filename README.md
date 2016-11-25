@@ -14,15 +14,18 @@ export const INVALIDATE_REDDIT = 'INVALIDATE_REDDIT'
 
 ### const action creater functions
 Action creater functions acts like constractor of action objec act like constractor of action object.It provides action name and other arguments to pass to reducer.  
-```export const selectReddit = reddit => ({
-  type: SELECT_REDDIT,
-  reddit
-})```
+```javascript
+export const selectReddit = reddit => ({
+    type: SELECT_REDDIT,
+    reddit
+})
+```
 It can receive args from Container.  
   
 Container (or Components) call these functions when action triggered as argument of dispatch function as;  
-```dispatch(fetchPostsIfNeeded(selectedReddit))```
-
+```javascript
+dispatch(fetchPostsIfNeeded(selectedReddit))
+```
 
 
 
