@@ -1,5 +1,4 @@
 # practice-redux02_async
-
 ## purpose
   an practice scripts of asynchronous react-redux application.
 
@@ -13,7 +12,7 @@ export const SELECT_REDDIT = 'SELECT_REDDIT'
 export const INVALIDATE_REDDIT = 'INVALIDATE_REDDIT'  
 
 ### const action creater functions
-Action creater functions acts like constractor of action objec act like constractor of action object.It provides action name and other arguments to pass to reducer.  
+Action creater functions acts like constractor of action objec act like constractor of action object.It provides action name and other arguments to pass to reducer.
 ```javascript
 export const selectReddit = reddit => ({
     type: SELECT_REDDIT,
@@ -22,7 +21,7 @@ export const selectReddit = reddit => ({
 ```
 It can receive args from Container.  
   
-Container (or Components) call these functions when action triggered as argument of dispatch function as;  
+Container (or Components) call these functions when action triggered as argument of dispatch function as;
 ```javascript
 dispatch(fetchPostsIfNeeded(selectedReddit))
 ```

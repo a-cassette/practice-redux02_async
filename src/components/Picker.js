@@ -1,5 +1,5 @@
 import React from 'react'
-import{ PropTypes } from 'react'
+//import{ PropTypes } from 'react'
 
 const Picker = ({ value, onChange, options }) => (
     <span>
@@ -13,3 +13,8 @@ const Picker = ({ value, onChange, options }) => (
           </select>
     </span>
 )
+
+//Picker.propTypes = {
+//}
+
+export default Picker

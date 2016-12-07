@@ -1,19 +1,31 @@
 import React                  from 'react'
 import { Component }          from 'react'
-import { PropTypes }          from 'react'
+//import { PropTypes }          from 'react'
 import { connect }            from 'react-redux'
 
-import { requestPosts }       from '../actions'
-import { selectCategory }     from '../actions'
-import { fetchPostsIfNeeded } from '../actions'
-import { refreshCategory }    from '../actions'
+//import { requestPosts }       from '../actions/actions'
+import { selectCategory }     from '../actions/actions'
+import { fetchPostsIfNeeded } from '../actions/actions'
+import { refreshCategory }    from '../actions/actions'
 
 import Picker                 from '../components/Picker'
-import Posts                  from '../components/Posts'
+import Posts                  from '../components/Post'
 
 class App extends Component {
-  static propTypes = {
+//  static propTypes = {
     //
+//  }
+
+  componentDidMount() {
+    const { dispatch, selectedCategory } = this.props
+    dispatch(fetchPostsIfNeeded(selectedCategory))
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.selectedCategory !== this.props.selectedCategory) {
+      const { dispatch, selectedCategory } = nextProps
+      dispatch(fetchPostsIfNeeded(selectedCategory))
+    }
   }
 
   handleChange = nextCategory => {
@@ -25,7 +37,7 @@ class App extends Component {
 
     const { dispatch, selectedCategory } = this.props // obj mapped in container
     dispatch(refreshCategory(selectedCategory))
-    dispatch(fetchPostIfNeeded(selectedCategory))
+    dispatch(fetchPostsIfNeeded(selectedCategory))
   }
 
   render() {
@@ -35,10 +47,9 @@ class App extends Component {
       <div>
         <Picker value={selectedCategory} onChange={this.handleChange} options={['javascript', 'python']} />
         <p>
-            // todo:check out syntax. Are these mean `if`??
             {lastUpdated &&
                 <span>
-                    Last updated ad {new Date(lastUpdated).toLocaateTimeString()}
+                    Last updated at {new Date(lastUpdated).toLocaateTimeString()}.{' '}
                 </span>
             }
             {!isFetching &&
@@ -59,11 +70,26 @@ class App extends Component {
   }
 }
 
-cosnt mapStateToProps = state => {
+
+
+
+const mapStateToProps = state => {
   const {selectedCategory, postsByReddit} = state
-  const {isFetching, lastUpdated, items: posts} = postsByReddit[selectedCategory] || {isFetching: true, items:[]}
+  const {
+    isFetching,
+    lastUpdated,
+    items: posts
+  } = postsByReddit[selectedCategory] || {
+    isFetching: true,
+    items:[]
+  }
 
   return{
-    selectedCategory, posts, isFetching, lastUpdated
+    selectedCategory,
+    posts,
+    isFetching,
+    lastUpdated
   }
 }
+
+export default connect(mapStateToProps)(App)

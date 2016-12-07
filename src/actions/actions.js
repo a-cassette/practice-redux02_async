@@ -1,15 +1,17 @@
 import fetch from 'isomorphic-fetch'
+export const REQUEST_POSTS = 'REQUEST_POSTS'
+export const RECEIVE_POSTS = 'RECEIVE_POSTS'
+export const SELECT_CATEGORY  = 'SELECT_CATEGORY'
+export const REFRESH_CATEGORY = 'REFRESH_CATEGORY'
 
 /*
  * user interaction actions
  */
-export const SELECT_CATEGORY  = 'SELECT_CATEGORY'
 export const selectCategory = category => ({
   type: SELECT_CATEGORY,
   category
 })
 
-export const REFRESH_CATEGORY = 'REFRESH_CATEGORY'
 export const refreshCategory = category => ({
   type: REFRESH_CATEGORY,
   category
@@ -31,13 +33,11 @@ export const refreshCategory = category => ({
  *
  */
 
-export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const requestPosts = category => ({
   type: REQUEST_POSTS,
   category
 })
 
-export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const receivePosts = (category, json) => ({
   type: RECEIVE_POSTS,
   category,

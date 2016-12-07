@@ -10,7 +10,7 @@ import { Provider }        from 'react-redux'
 //import { fetchPostsIfNeeded } from './actions/actions'
 
 import rootReducer         from './reducers/reducers'
-import App                 from './components/App'
+import App                 from './containers/App'
 
 const loggerMiddleware = createLogger()
 
